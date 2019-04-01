@@ -2,7 +2,7 @@
 
 const Item = (function() {
 
-    function validateName(name){
+    const validateName = function(name){
         console.log(name);
         if (!name){
             throw new TypeError( "Name does not exist!");
@@ -11,7 +11,7 @@ const Item = (function() {
         }
     };
 
-    function create(name) {
+    const create = function(name) {
         return {
             id : cuid(),
             name: name,
