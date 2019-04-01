@@ -1,6 +1,6 @@
 'use strict'
 
-const Item = function() {
+const Item = (function() {
 
     function validateName(name){
         console.log(name);
@@ -9,10 +9,10 @@ const Item = function() {
         } else {
             return true;
         }
-    }
+    };
 
     function create(name) {
-        return newItem = {
+        return {
             id : cuid(),
             name: name,
             checked : false,
@@ -22,9 +22,4 @@ const Item = function() {
         validateName: validateName,
         create: create,
     };
-}
-
-
-
-console.log(Item);
-console.log(foo);
+} () );
