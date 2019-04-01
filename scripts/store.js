@@ -9,7 +9,7 @@ const store = (function() {
         { id: cuid(), name: 'bread', checked: false }
     ];
 
-    const findByID = function(id) {
+    const findById = function(id) {
         return store.items.find(item => item['id'] === id);
     };
 
@@ -22,12 +22,34 @@ const store = (function() {
         }
     };
 
+    const findAndUpdateName = function(id, newName) {
+        try { 
+            Item.validateName(newName); 
+            let item = findById(id); 
+            item[name] = newName; 
+        } 
+        catch(error) { 
+            console.log(`Cannot update name: ${error.message}`); 
+        } 
+    };
+
+    const findAndDelete = function(id) {
+        let item = findById(id);
+        items.filter(item);
+    };
+
+
+
     const hideCheckedItems = false;
     
     const searchTerm = '';
 
     return {
         items,
+        findById,
+        addItem,
+        findAndUpdateName,
+        findAndDelete,
         hideCheckedItems,
         searchTerm,
     }
