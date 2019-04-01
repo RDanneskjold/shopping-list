@@ -49,13 +49,17 @@ const store = (function() {
     const setSearchTerm = function(term) {
         this.searchTerm = term;
     };
-
+    
     const hideCheckedItems = false;
     
     const searchTerm = '';
 
     return {
         items,
+        findById,
+        addItem,
+        findAndUpdateName,
+        findAndDelete,
         hideCheckedItems,
         searchTerm,
         findById,
