@@ -1,17 +1,30 @@
 'use strict'
 
 const Item = function() {
-    const foo = 'bar';
 
-    return {};
-}
-
-function validateName(name){
-    if (!name){
-        throw new TypeError( "Name does not exist!");
+    function validateName(name){
+        console.log(name);
+        if (!name){
+            throw new TypeError( "Name does not exist!");
+        } else {
+            return true;
+        }
     }
-    else return true;
+
+    function create(name) {
+        return newItem = {
+            id : cuid(),
+            name: name,
+            checked : false,
+        }
+    }
+    return {
+        validateName: validateName,
+        create: create,
+    };
 }
+
+
 
 console.log(Item);
 console.log(foo);
