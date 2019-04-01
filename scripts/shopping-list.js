@@ -25,13 +25,13 @@ const shoppingList = (function(){
           </button>
         </div>
       </li>`;
-  }
+  };
   
   
   function generateShoppingItemsString(shoppingList) {
     const items = shoppingList.map((item) => generateItemElement(item));
     return items.join('');
-  }
+  };
   
   
   function render() {
@@ -52,7 +52,7 @@ const shoppingList = (function(){
   
     // insert that HTML into the DOM
     $('.js-shopping-list').html(shoppingListItemsString);
-  }
+  };
   
   function handleNewItemSubmit() {
     $('#js-shopping-list-form').submit(function (event) {
@@ -62,7 +62,7 @@ const shoppingList = (function(){
       store.addItem(newItemName);
       render();
     });
-  }
+  };
     
   function getItemIdFromElement(item) {
     return $(item)
@@ -72,11 +72,12 @@ const shoppingList = (function(){
   
   function handleItemCheckClicked() {
     $('.js-shopping-list').on('click', '.js-item-toggle', event => {
+
       const id = getItemIdFromElement(event.currentTarget);
       store.findAndToggleChecked(id);
       render();
     });
-  }
+  };
   
   function handleDeleteItemClicked() {
     // like in `handleItemCheckClicked`, we use event delegation
@@ -88,7 +89,7 @@ const shoppingList = (function(){
       // render the updated shopping list
       render();
     });
-  }
+  };
   
   function handleEditShoppingItemSubmit() {
     $('.js-shopping-list').on('submit', '.js-edit-item', event => {
@@ -98,14 +99,14 @@ const shoppingList = (function(){
       store.findAndUpdateName(id, itemName);
       render();
     });
-  }
+  };
   
   function handleToggleFilterClick() {
     $('.js-filter-checked').click(() => {
       store.toggleCheckedFilter();
       render();
     });
-  }
+  };
   
   function handleShoppingListSearch() {
     $('.js-shopping-list-search-entry').on('keyup', event => {
@@ -113,7 +114,7 @@ const shoppingList = (function(){
       store.setSearchTerm(val);
       render();
     });
-  }
+  };
   
   function bindEventListeners() {
     handleNewItemSubmit();
@@ -122,7 +123,7 @@ const shoppingList = (function(){
     handleEditShoppingItemSubmit();
     handleToggleFilterClick();
     handleShoppingListSearch();
-  }
+  };
 
   // This object contains the only exposed methods from this module:
   return {

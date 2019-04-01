@@ -59,7 +59,6 @@ const store = (function() {
         findById,
         addItem,
         findAndUpdateName,
-        findAndDelete,
         hideCheckedItems,
         searchTerm,
         findById,

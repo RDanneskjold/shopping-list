@@ -17,7 +17,7 @@ const Item = (function() {
             name: name,
             checked : false,
         }
-    }
+    };
     return {
         validateName: validateName,
         create: create,
